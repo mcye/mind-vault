@@ -23,7 +23,7 @@ app.use('*', cors({
   credentials: true,
 }))
 
-// 2. 路由定义 (示例: 健康检查)
+// 2. 路由定义 (示例: 健康检查) 
 const routes = app
   .get('/health', (c) => {
     return c.json({ 
