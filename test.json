@@ -1,0 +1,88 @@
+requestAAAA {
+    "id": "Pyp2lA5tYxfXSnmg",
+    "messages": [
+        {
+            "parts": [
+                {
+                    "type": "text",
+                    "text": "谷歌秘密是多少？"
+                }
+            ],
+            "id": "4ZscEXFDjdB963gH",
+            "role": "user"
+        }
+    ],
+    "trigger": "submit-message"
+}
+messages [
+    { parts: [
+            [Object
+            ]
+        ], id: '4ZscEXFDjdB963gH', role: 'user'
+    }
+]
+chatId undefined
+[wrangler:info
+] POST /chat 200 OK (1294ms)
+requestAAAA {
+    "id": "Pyp2lA5tYxfXSnmg",
+    "messages": [
+        {
+            "parts": [
+                {
+                    "type": "text",
+                    "text": "谷歌秘密是多少？"
+                }
+            ],
+            "id": "4ZscEXFDjdB963gH",
+            "role": "user"
+        },
+        {
+            "id": "Soigc8Jcvrp0xNLK",
+            "role": "assistant",
+            "parts": [
+                {
+                    "type": "step-start"
+                },
+                {
+                    "type": "text",
+                    "text": "根据提供的背景信息，谷歌密码是：123qweasdzxc。",
+                    "state": "done"
+                }
+            ]
+        },
+        {
+            "parts": [
+                {
+                    "type": "text",
+                    "text": "谷歌秘密是多少？"
+                }
+            ],
+            "id": "qasCkT6ZqXEQNcOT",
+            "role": "user"
+        }
+    ],
+    "trigger": "submit-message"
+}
+messages [
+    { parts: [
+            [Object
+            ]
+        ], id: '4ZscEXFDjdB963gH', role: 'user'
+    },
+    {
+    id: 'Soigc8Jcvrp0xNLK',
+    role: 'assistant',
+    parts: [
+            [Object
+            ],
+            [Object
+            ]
+        ]
+    },
+    { parts: [
+            [Object
+            ]
+        ], id: 'qasCkT6ZqXEQNcOT', role: 'user'
+    }
+]

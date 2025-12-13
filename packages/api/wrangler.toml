@@ -1,8 +1,0 @@
-name = "mind-vault"
-compatibility_date = "2025-12-02"
-
-# 这里的 main 指向入口文件，虽然我们在命令里指定了，但配置文件里写上也更规范
-main = "src/index.ts"
-
-[observability]
-enabled = true

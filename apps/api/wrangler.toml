@@ -1,0 +1,16 @@
+name = "mind-vault-api"
+compatibility_date = "2025-12-02"
+compatibility_flags = ["nodejs_compat"]
+
+# 这里的 main 指向入口文件，虽然我们在命令里指定了，但配置文件里写上也更规范
+main = "src/index.ts"
+
+[define]
+# 修复 better-auth在 bundle 后 import.meta.url 为 undefined 的问题
+"import.meta.url" = "\"file:///index.js\""
+
+[observability]
+enabled = true
+
+[ai]
+binding = "AI"
