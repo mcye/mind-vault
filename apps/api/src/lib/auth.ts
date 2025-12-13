@@ -34,7 +34,11 @@ export const createAuth = (c: any) => {
                     type: "string",
                     required: false,
                 },
-                role: {
+                stripeSubscriptionId: {
+                    type: "string",
+                    required: false,
+                },
+                stripeCurrentPeriodEnd: {
                     type: "string",
                     required: false,
                 }

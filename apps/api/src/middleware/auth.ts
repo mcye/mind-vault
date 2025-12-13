@@ -25,6 +25,10 @@ export const authMiddleware = createMiddleware<AuthEnv>(async (c, next) => {
     const user = {
         ...session.user,
         image: session.user.image ?? null, // 如果是 undefined, 强制转为 null
+        stripeSubscriptionId: session.user.stripeSubscriptionId ?? null,
+        stripeCurrentPeriodEnd: session.user.stripeCurrentPeriodEnd ? new Date(session.user.stripeCurrentPeriodEnd) : null,
+        stripeCustomerId: session.user.stripeCustomerId ?? null,
+        plan: (session.user.plan as "free" | "pro") ?? "free",
     };
 
     const sessionData = {

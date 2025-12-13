@@ -14,3 +14,7 @@ enabled = true
 
 [ai]
 binding = "AI"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "mind-vault-r2"
