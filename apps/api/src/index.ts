@@ -35,12 +35,15 @@ app.onError((err, c) => {
 
 // 配置 CORS (非常重要，否则前端 fetch 会跨域失败)
 app.use('/*', cors({
-  origin: ['http://localhost:3000', 'https://hypervigilant-monnie-supratemporal.ngrok-free.dev', 'https://modern-stack-pro-next.vercel.app'], // 允许前端地址
+  origin: [
+    'http://localhost:3000',
+    'https://hypervigilant-monnie-supratemporal.ngrok-free.dev',
+    'https://mind-vault-web.vercel.app/'], // 允许前端地址
   allowHeaders: ['Content-Type', 'Authorization', 'better-auth-csrf-token'], // 👈 加上 better-auth 可能用到的 header
   allowMethods: ['POST', 'GET', 'OPTIONS'],
   exposeHeaders: ['Content-Length', 'Set-Cookie'], // 👈 增加 exposeHeaders
   maxAge: 600,
-  credentials: true, // 允许携带 Cookie
+  credentials: true, // 允许携带 Cookiehttps://mind-vault-web.vercel.app/
 }))
 
 // 中间件：初始化 DB 并注入 Context
