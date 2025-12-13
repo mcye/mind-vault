@@ -22,17 +22,6 @@ type Variables = {
 
 const app = new Hono<{ Bindings: Bindings; Variables: Variables }>();
 
-app.onError((err, c) => {
-  if (err instanceof HTTPException) {
-    return c.json({
-      error: err.message,
-    }, err.status);
-  }
-  return c.json({
-    error: 'Internal Server Error',
-  }, 500);
-});
-
 // 配置 CORS (非常重要，否则前端 fetch 会跨域失败)
 app.use('/*', cors({
   origin: [
@@ -60,6 +49,17 @@ app.on(["POST", "GET"], "/api/auth/*", (c) => {
   console.log(`[Auth Debug] Method: ${c.req.method}, Path: ${c.req.path}`);
   const auth = createAuth(c);
   return auth.handler(c.req.raw);
+});
+
+app.onError((err, c) => {
+  if (err instanceof HTTPException) {
+    return c.json({
+      error: err.message,
+    }, err.status);
+  }
+  return c.json({
+    error: 'Internal Server Error',
+  }, 500);
 });
 
 const routes = app
