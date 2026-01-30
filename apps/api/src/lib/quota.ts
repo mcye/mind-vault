@@ -33,7 +33,7 @@ export class QuotaManager {
     // 检查是否允许发送 (硬编码限制，Phase 6 会变成动态获取 plan)
     async checkMessageLimit(userId: string): Promise<boolean> {
         const count = await this.getMessageCount(userId);
-        const LIMIT = 2; // 免费用户限制 50 条
+        const LIMIT = 50; // 免费用户限制 50 条
         return count < LIMIT;
     }
 
@@ -60,7 +60,7 @@ export class QuotaManager {
     // 检查是否允许上传 (传入新文件大小)
     async checkStorageLimit(userId: string, newFileSize: number): Promise<boolean> {
         const used = await this.getUsedStorage(userId);
-        const LIMIT_MB = 0.1;
+        const LIMIT_MB = 100;
         const LIMIT_BYTES = LIMIT_MB * 1024 * 1024;
 
         return (used + newFileSize) <= LIMIT_BYTES;
