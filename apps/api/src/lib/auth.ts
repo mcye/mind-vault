@@ -58,12 +58,11 @@ export const createAuth = (c: any) => {
         // 确保 URL 正确 (Cloudflare 生产环境可能需要动态配置)
         baseURL: c.env.API_URL || "http://localhost:8787",
         advanced: {
-            cookiePrefix: "better-auth",
             defaultCookieAttributes: {
-                sameSite: "none",
+                sameSite: "lax",
                 secure: true,
                 httpOnly: true,
-            }
+            },
         },
     });
 };
