@@ -14,12 +14,13 @@ export const createAuth = (c: any) => {
             provider: "sqlite",
             schema: schema,
         }),
-        // socialProviders: {
-        //     github: {
-        //         clientId: c.env.GITHUB_CLIENT_ID,
-        //         clientSecret: c.env.GITHUB_CLIENT_SECRET,
-        //     }, 
-        // },
+        socialProviders: {
+            github: {
+                clientId: c.env.GITHUB_CLIENT_ID,
+                clientSecret: c.env.GITHUB_CLIENT_SECRET,
+            },
+            // google: { ... } // 后续可加
+        },
         emailAndPassword: {
             enabled: true,
         },
