@@ -14,13 +14,12 @@ export const createAuth = (c: any) => {
             provider: "sqlite",
             schema: schema,
         }),
-        socialProviders: {
-            github: {
-                clientId: c.env.GITHUB_CLIENT_ID,
-                clientSecret: c.env.GITHUB_CLIENT_SECRET,
-            },
-            // google: { ... } // 后续可加
-        },
+        // socialProviders: {
+        //     github: {
+        //         clientId: c.env.GITHUB_CLIENT_ID,
+        //         clientSecret: c.env.GITHUB_CLIENT_SECRET,
+        //     }, 
+        // },
         emailAndPassword: {
             enabled: true,
         },
@@ -56,14 +55,18 @@ export const createAuth = (c: any) => {
 
         // 确保 URL 正确 (Cloudflare 生产环境可能需要动态配置)
         baseURL: c.env.API_URL || "http://localhost:8787",
+        fetchOptions: {
+            // 必须添加这个配置，否则浏览器即便收到了 Set-Cookie 指令也会将其丢弃
+            credentials: "include",
+        },
         advanced: {
-            cookiePrefix: "better-auth",
-            defaultCookieAttributes: {
-                sameSite: "none",
-                secure: true,
-                httpOnly: true,
-            },
             crossSiteCookies: true,
+            defaultCookieAttributes: {
+                sameSite: "none", // 必须是 none，允许跨站
+                secure: true,     // 必须是 true，none 模式强制要求 secure
+                httpOnly: true,
+                partitioned: true, // 核心：解决 Chrome 118+ 后的跨站拦截问题
+            },
         },
     });
 };

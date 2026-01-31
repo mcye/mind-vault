@@ -5,4 +5,5 @@ export const authClient = createAuthClient({
 });
 
 // 导出常用的 Hook
-export const { useSession, signIn, signOut } = authClient;
+// 导出常用的 Hook
+export const { useSession, signIn, signOut, signUp } = authClient;

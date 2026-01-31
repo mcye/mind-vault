@@ -28,7 +28,7 @@ app.use('/*', cors({
     'http://localhost:3000',
     'https://hypervigilant-monnie-supratemporal.ngrok-free.dev',
     'https://mind-vault-lyart.vercel.app'], // 允许前端地址
-  allowHeaders: ['Content-Type', 'Authorization', 'better-auth-csrf-token'], // 👈 加上 better-auth 可能用到的 header
+  allowHeaders: ['Content-Type', 'Authorization'], // 👈 加上 better-auth 可能用到的 header
   allowMethods: ['POST', 'GET', 'OPTIONS'],
   exposeHeaders: ['Content-Length', 'Set-Cookie'], // 👈 增加 exposeHeaders
   maxAge: 600,
