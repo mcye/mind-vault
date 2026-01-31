@@ -47,7 +47,6 @@ export const createAuth = (c: any) => {
         secret: c.env.BETTER_AUTH_SECRET, // 必填，生成一个长随机字符串
         trustedOrigins: [
             "http://localhost:3000",
-            "https://mind-vault-web.vercel.app",
             "https://mind-vault-lyart.vercel.app",
         ],
         // 注意：如果是跨域 (Web: localhost:3000, API: localhost:8787)，需要配置 CORS 和 cookie
