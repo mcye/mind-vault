@@ -6,7 +6,7 @@ export default function LoginPage() {
     const handleGithubLogin = async () => {
         await signIn.social({
             provider: "github",
-            callbackURL: "https://mind-vault-lyart.vercel.app/dashboard", // 登录成功回首页 (必须是绝对路径，否则可能会跳到 API 域名)
+            callbackURL: "https://mcye.online/dashboard", // 登录成功回首页 (必须是绝对路径，否则可能会跳到 API 域名)
         });
     };
 
