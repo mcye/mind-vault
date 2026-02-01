@@ -49,6 +49,7 @@ export const createAuth = (c: any) => {
             "http://localhost:3000",
             "https://mind-vault-lyart.vercel.app",
             "https://mcye.online",
+            "https://www.mcye.online",
         ],
         // 注意：如果是跨域 (Web: localhost:3000, API: localhost:8787)，需要配置 CORS 和 cookie
 
