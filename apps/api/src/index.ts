@@ -31,9 +31,9 @@ app.use('/*', cors({
     'https://mcye.online',
     'https://www.mcye.online',
   ], // 允许前端地址
-  allowHeaders: ['Content-Type', 'Authorization'], // 👈 加上 better-auth 可能用到的 header
+  allowHeaders: ['Content-Type', 'Authorization', 'Set-Cookie', 'better-auth'], // 👈 加上 better-auth 可能用到的 header
   allowMethods: ['POST', 'GET', 'OPTIONS'],
-  exposeHeaders: ['Content-Length', 'Set-Cookie'], // 👈 增加 exposeHeaders
+  exposeHeaders: ['Content-Length', 'Set-Cookie', 'better-auth'], // 👈 增加 exposeHeaders
   maxAge: 600,
   credentials: true, // 允许携带 Cookiehttps://mind-vault-web.vercel.app/
 }))
