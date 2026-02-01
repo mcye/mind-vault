@@ -19,7 +19,10 @@ export const createAuth = (c: any) => {
                 clientId: c.env.GITHUB_CLIENT_ID,
                 clientSecret: c.env.GITHUB_CLIENT_SECRET,
             },
-            // google: { ... } // 后续可加
+            google: {
+                clientId: c.env.GOOGLE_CLIENT_ID,
+                clientSecret: c.env.GOOGLE_CLIENT_SECRET,
+            },
         },
         emailAndPassword: {
             enabled: true,
@@ -63,13 +66,26 @@ export const createAuth = (c: any) => {
             credentials: "include",
         },
         advanced: {
-            crossSiteCookies: true,
-            defaultCookieAttributes: {
-                sameSite: "none", // 必须是 none，允许跨站
-                secure: true,     // 必须是 true，none 模式强制要求 secure
-                httpOnly: true,
-                partitioned: true, // 核心：解决 Chrome 118+ 后的跨站拦截问题
+            crossSubDomainCookies: {
+                enabled: true,
+                // 允许的子域名列表
+                allowedDomains: [
+                    "mcye.online",
+                    "www.mcye.online",
+                    "api.mcye.online",
+                    "app.mcye.online",
+                ],
             },
+            // crossSiteCookies: true,
+
+            // defaultCookieAttributes: {
+            //     domain: c.env.API_URL?.includes("mcye.online") ? ".mcye.online" : undefined,
+            //     sameSite: "none",
+            //     secure: true,
+            //     httpOnly: true,
+            //     path: "/",
+            //     partitioned: true, // 恢复 partitioned
+            // },
         },
     });
 };

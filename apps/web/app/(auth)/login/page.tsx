@@ -10,13 +10,25 @@ export default function LoginPage() {
         });
     };
 
+    const handleGoogleLogin = async () => {
+        await signIn.social({
+            provider: "google",
+            callbackURL: "https://mcye.online/dashboard",
+        });
+    };
+
     return (
         <div className="flex h-screen items-center justify-center">
-            <div className="p-8 border rounded-lg shadow-sm text-center">
+            <div className="p-8 border rounded-lg shadow-sm text-center w-[400px]">
                 <h1 className="text-2xl font-bold mb-4">Welcome to Memora</h1>
-                <Button onClick={handleGithubLogin}>
-                    Sign in with GitHub
-                </Button>
+                <div className="flex flex-col gap-4">
+                    <Button onClick={handleGithubLogin} className="w-full">
+                        Sign in with GitHub
+                    </Button>
+                    <Button onClick={handleGoogleLogin} variant="outline" className="w-full">
+                        Sign in with Google
+                    </Button>
+                </div>
             </div>
         </div>
     );

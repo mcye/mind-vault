@@ -13,6 +13,12 @@ import pay from './routes/pay';
 type Bindings = {
   TURSO_DATABASE_URL: string;
   TURSO_AUTH_TOKEN: string;
+  API_URL: string;
+  GITHUB_CLIENT_ID: string;
+  GITHUB_CLIENT_SECRET: string;
+  GOOGLE_CLIENT_ID: string;
+  GOOGLE_CLIENT_SECRET: string;
+  BETTER_AUTH_SECRET: string;
 };
 
 // 将 DB 注入到 Hono 的 Context 变量中
@@ -21,6 +27,8 @@ type Variables = {
 };
 
 const app = new Hono<{ Bindings: Bindings; Variables: Variables }>();
+
+app.get('/', (c) => c.text('Mind Vault API is running'));
 
 // 配置 CORS (非常重要，否则前端 fetch 会跨域失败)
 app.use('/*', cors({
